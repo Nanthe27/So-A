@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
-    <meta name="theme-color" id="themeColorMeta" content="#4CAF50">
+    <meta name="theme-color" id="themeColorMeta" content="#7E7E84">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="My Day Matcha">
+    <meta name="apple-mobile-web-app-title" content="So-A">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <title>My Day Matcha</title>
+    <title>So-A</title>
 
-    <link rel="icon" href="./Logo.png">
-    <link rel="apple-touch-icon" href="./Logo.png">
+    <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG">
     <link rel="manifest" href="manifest.json">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,9 +26,9 @@
 
     <style>
         :root { 
-            --primary: #4CAF50; 
-            --primary-dim: #2E7D32;
-            --primary-light: #A5D6A7;
+            --primary: #7E7E84; 
+            --primary-dim: #48484A;
+            --primary-light: #AEAEB2;
             --bg: #F2F2F7; 
             --surface: #FFFFFF; 
             --surface-hover: #F5F5F5;
@@ -121,7 +121,7 @@
         .drink-btn { width: 100%; height: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; padding: 10px; gap: 12px; overflow: hidden; cursor: pointer; position: relative; text-align: left; transition: border-color 0.2s var(--anim-curve), background 0.2s var(--anim-curve), transform 0.2s var(--anim-curve), opacity 0.2s var(--anim-curve); }
         .drink-btn:hover { border-color: var(--primary); background: var(--surface-hover); transform: scale(0.97); }
         .drink-btn:active { transform: scale(0.94); opacity: 0.9; }
-        .drink-icon-box { width: 45px; height: 45px; min-width: 45px; background-color: var(--surface-hover); background-size: cover; background-position: center; border-radius: var(--radius); transition: background-image 0.3s ease-in; }
+        .drink-icon-box { width: 56px; height: 56px; min-width: 56px; background-color: var(--surface-hover); background-size: cover; background-position: center; border-radius: var(--radius); transition: background-image 0.3s ease-in; }
         .drink-info-box { flex: 1; display: flex; align-items: center; overflow: hidden; }
         .drink-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; color: var(--text); line-height: 1.2; }
 
@@ -148,7 +148,7 @@
         .cart-area.active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
 
         .settings-area {
-            display: flex; flex-direction: column; background: var(--bg); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 160; opacity: 0; visibility: hidden; pointer-events: none; padding: 20px; overflow-y: auto; transition: opacity var(--anim-speed) var(--anim-curve), visibility var(--anim-speed) var(--anim-curve); will-change: opacity;
+            display: flex; flex-direction: column; background: var(--bg); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 300; opacity: 0; visibility: hidden; pointer-events: none; padding: 20px; overflow-y: auto; transition: opacity var(--anim-speed) var(--anim-curve), visibility var(--anim-speed) var(--anim-curve); will-change: opacity;
         }
         .settings-area.active { opacity: 1; visibility: visible; pointer-events: auto; }
 
@@ -172,6 +172,87 @@
         .loyalty-title { font-size: 15px; font-weight: 700; color: white; flex: 1; }
 
         .settings-footer { margin-top: auto; padding-top: 8px; padding-bottom: max(env(safe-area-inset-bottom), 90px); text-align: center; font-size: 12px; color: var(--text-muted); }
+
+        /* Mobile Settings Back Button */
+        .settings-back-btn {
+            display: none;
+        }
+        @media (max-width: 992px) {
+            .settings-back-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: none;
+                color: var(--text);
+                padding: 4px;
+                margin-left: -8px;
+                cursor: pointer;
+                transition: opacity 0.2s;
+            }
+            .settings-back-btn:active {
+                opacity: 0.6;
+            }
+            .settings-header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 24px !important;
+            }
+        }
+
+        /* Mobile Settings Profile Card */
+        .settings-profile-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-bottom: 22px;
+            box-shadow: var(--shadow-sm);
+        }
+        .settings-profile-avatar-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--bg);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+        .settings-profile-avatar-circle:active {
+            transform: scale(0.95);
+        }
+        .settings-profile-avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .settings-profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+        }
+        .settings-profile-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--text);
+        }
+        .settings-profile-tag {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+        }
 
         /* FLOATING PILL BOTTOM NAV (MOBILE) */
         .bottom-nav { 
@@ -243,6 +324,7 @@
             .app-header { display: none !important; }
             .bottom-nav { display: none !important; }
             .desktop-nav-group { display: flex !important; }
+            .settings-profile-card { display: none !important; }
 
             /* ── LEFT SIDEBAR ── */
             .desk-sidebar {
@@ -323,7 +405,7 @@
                 padding: 24px;
                 overflow-y: auto;
                 height: 100vh;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: auto;
                 gap: 16px;
                 align-content: start;
@@ -420,6 +502,87 @@
         .item-price { font-weight: 700; font-size: 13px; color: var(--primary); }
         .del-btn { color: var(--text-muted); background: none; border: none; font-size: 18px; cursor: pointer; transition: color 0.2s; }
         .del-btn:hover { color: #FF3B30; }
+
+        /* Hide scrollbars globally */
+        ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+        * { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+
+        /* Custom Web UI Dropdown */
+        .custom-dropdown {
+            display: inline-block;
+            position: relative;
+            margin-top: 4px;
+            margin-right: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            user-select: none;
+            text-align: left;
+        }
+        .custom-dropdown-trigger {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 5px 8px;
+            color: var(--text);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            min-width: 60px;
+            transition: border-color var(--anim-speed) var(--anim-curve), background var(--anim-speed) var(--anim-curve);
+        }
+        .custom-dropdown-trigger:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary-light);
+        }
+        .custom-dropdown.open .custom-dropdown-trigger {
+            border-color: var(--primary);
+            background: var(--surface);
+        }
+        .custom-dropdown-trigger svg {
+            transition: transform var(--anim-speed) var(--anim-curve);
+            flex-shrink: 0;
+            color: var(--text-muted);
+        }
+        .custom-dropdown.open .custom-dropdown-trigger svg {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+        .custom-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 999;
+            display: none;
+            min-width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            padding: 4px;
+            margin-top: 4px;
+            animation: fadeScale var(--anim-speed) var(--anim-curve);
+        }
+        .custom-dropdown.open .custom-dropdown-menu {
+            display: block;
+        }
+        .custom-dropdown-item {
+            padding: 6px 10px;
+            border-radius: 4px;
+            color: var(--text);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background var(--anim-speed) var(--anim-curve), color var(--anim-speed) var(--anim-curve);
+        }
+        .custom-dropdown-item:hover {
+            background: var(--surface-hover);
+        }
+        .custom-dropdown-item.selected {
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 600;
+        }
         
         .cart-footer {
             order: -1; padding: 20px 25px; background: var(--surface);
@@ -471,16 +634,11 @@
                         min-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             flex-shrink: 0;
         }
-        #loginScreen.pin-phase #loginTopSpacer {
-            flex: 0 0 max(env(safe-area-inset-top), 36px);
-            min-height: max(env(safe-area-inset-top), 36px);
-        }
         #loginBottomSpacer {
             flex: 1 1 0; min-height: 0;
             transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             flex-shrink: 0;
         }
-        #loginScreen.pin-phase #loginBottomSpacer { flex: 0 0 0; }
 
         /* ── Logo section (transitions from center to top) ── */
         #loginLogoSection {
@@ -532,32 +690,34 @@
             font-family: 'Quicksand', sans-serif; font-size: 19px; font-weight: 800;
             color: var(--text); margin: 24px 0 18px; text-align: center;
         }
-        .login-user-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; }
-        .login-user-btn {
-            display: flex; flex-direction: column; align-items: center; gap: 7px;
-            background: var(--bg); border: 1.5px solid var(--border); border-radius: 16px;
-            padding: 14px 6px 12px; cursor: pointer; font-family: inherit;
-            transition: border-color 0.18s, transform 0.15s, background 0.18s;
-            touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+        .login-user-grid {
+            display: flex; justify-content: center; align-items: center; gap: 24px;
+            width: 100%; max-width: 480px; margin: 0 auto;
         }
-        .login-user-btn:active { transform: scale(0.92); background: var(--surface-hover); }
-        .login-user-btn.has-faceid { border-color: var(--primary-light); }
+        .login-user-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            background: transparent; border: none; border-radius: 16px;
+            padding: 8px 16px; cursor: pointer; font-family: inherit;
+            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.15s;
+            touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+            min-width: 80px;
+        }
+        .login-user-btn:active { transform: scale(0.90); opacity: 0.7; }
         .login-user-avatar-circle {
-            width: 48px; height: 48px; border-radius: 50%;
+            width: 56px; height: 56px; border-radius: 50%;
             background: linear-gradient(135deg, var(--primary-dim), var(--primary));
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Quicksand', sans-serif; font-size: 20px; font-weight: 800; color: white;
+            font-family: 'Quicksand', sans-serif; font-size: 22px; font-weight: 800; color: white;
             position: relative; flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .login-user-faceid-badge {
-            position: absolute; bottom: -2px; right: -2px;
-            width: 17px; height: 17px; background: var(--surface); border-radius: 50%;
-            border: 1.5px solid var(--border);
-            display: flex; align-items: center; justify-content: center; color: var(--primary);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+        .login-user-btn:hover .login-user-avatar-circle {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
-        .login-user-name { font-size: 11px; font-weight: 700; color: var(--text); text-align: center; line-height: 1.2; word-break: break-word; }
-        .login-user-loading { color: var(--text-muted); font-size: 13px; text-align: center; padding: 20px 0; grid-column: 1/-1; }
+        .login-user-name { font-size: 13px; font-weight: 700; color: var(--text); text-align: center; line-height: 1.2; word-break: break-word; }
+        .login-user-loading { color: var(--text-muted); font-size: 13px; text-align: center; padding: 20px 0; width: 100%; }
         .num-spacer { display: block; }
         #updateRefreshBtn {
             margin-top: 14px; padding: 8px 18px; background: transparent;
@@ -574,21 +734,7 @@
             max-width: 340px; /* keeps numpad centered on large screens */
         }
 
-        /* Face ID / Touch ID button — visible above numpad, shown on request */
-        #faceIdLoginBtn {
-            display: none; align-items: center; justify-content: center; gap: 10px;
-            width: 100%; max-width: 300px; padding: 16px;
-            background: transparent; color: var(--primary);
-            border: 2px solid color-mix(in srgb, var(--primary) 40%, var(--border));
-            border-radius: 16px; font-size: 15px; font-weight: 700; cursor: pointer;
-            transition: background 0.18s, transform 0.15s, border-color 0.18s;
-            letter-spacing: 0.3px; font-family: 'Inter', sans-serif;
-            margin-bottom: 0;
-        }
-        #faceIdLoginBtn.show { display: flex; }
-        #faceIdLoginBtn:hover { background: color-mix(in srgb, var(--primary) 8%, transparent); border-color: var(--primary); }
-        #faceIdLoginBtn:active { transform: scale(0.97); }
-        #faceIdLoginBtn:disabled { opacity: 0.5; }
+
 
         .pin-or-label {
             font-size: 11px; color: var(--text-muted); font-weight: 600;
@@ -712,11 +858,7 @@
         #clearDataSheetBox .sheet-msg { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 22px; }
         #clearDataSheetBox .sheet-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-bottom: env(safe-area-inset-bottom); }
 
-        /* Face ID toggle confirmation sheet */
-        #faceIdConfirmSheet { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.4); display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s; }
-        #faceIdConfirmSheet.open { opacity: 1; visibility: visible; }
-        #faceIdConfirmSheetBox { background: var(--surface); width: 100%; max-width: 480px; border-radius: 20px 20px 0 0; padding: 8px 20px 20px; transform: translateY(100%); transition: transform 0.3s var(--anim-curve); }
-        #faceIdConfirmSheet.open #faceIdConfirmSheetBox { transform: translateY(0); }
+
         #logoutConfirmOverlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.45); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.22s ease; }
         #logoutConfirmOverlay.lco-show { display: flex; }
         #logoutConfirmOverlay.lco-visible { opacity: 1; }
@@ -725,7 +867,25 @@
 
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); backdrop-filter: blur(5px); z-index: 300; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; will-change: opacity; }
         .modal-overlay.open { opacity: 1; visibility: visible; }
-        .modal-box { background: var(--surface); width: 90%; max-width: 380px; padding: 30px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .modal-box { background: var(--surface); width: 90%; max-width: 380px; padding: 30px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: max-width var(--anim-speed) var(--anim-curve), padding var(--anim-speed) var(--anim-curve); }
+        .modal-box.wide-modal { max-width: 720px; width: 95%; padding: 24px; }
+        
+        /* Split Section Layout for Confirmation Modal */
+        .confirm-split-container { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; text-align: left; }
+        .confirm-split-left { display: flex; flex-direction: column; border-right: 1px solid var(--border); padding-right: 24px; }
+        .confirm-split-right { display: flex; flex-direction: column; justify-content: flex-start; gap: 15px; }
+        .confirm-items-scroll { max-height: 200px; overflow-y: auto; background: var(--bg); padding: 12px; border-radius: 12px; margin-bottom: 10px; border: 1px solid var(--border); }
+        
+        /* Hide scrollbars inside items scroll list */
+        .confirm-items-scroll::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+        .confirm-items-scroll { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+        
+        @media (max-width: 640px) {
+            .confirm-split-container { grid-template-columns: 1fr; gap: 16px; }
+            .confirm-split-left { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 16px; }
+            .confirm-items-scroll { max-height: 150px; }
+        }
+
         .modal-title { color: var(--primary); font-family: 'Quicksand', sans-serif; font-size: 20px; margin-bottom: 15px; }
 
         .receipt-paper { background: white; color: #000; padding: 20px; width: 100%; margin: 0 auto; font-family: 'Courier Prime', monospace; text-align: center; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -750,6 +910,17 @@
         #historyPage .app-header, #managerPage .app-header, #inventoryPage .app-header {
             height: calc(70px + max(env(safe-area-inset-top), 20px));
             padding: max(env(safe-area-inset-top), 20px) 20px 0 20px;
+        }
+
+        .blur-amount {
+            filter: blur(6px);
+            cursor: pointer;
+            transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .blur-amount.revealed {
+            filter: none;
         }
 
         .hc-header { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; color: var(--text); border-bottom: 1px dashed var(--border); padding-bottom: 8px; }
@@ -1150,16 +1321,23 @@
 
         /* ═══════════════ HISTORY CARD REDESIGN ═══════════════ */
         .history-card {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             background: var(--surface); border: 1px solid var(--border);
             border-radius: 14px; overflow: hidden; margin-bottom: 10px;
-            min-height: 90px;
-            transition: border-color 0.15s, box-shadow 0.15s;
+            height: 140px; /* Nice fixed size! */
+            transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+            cursor: pointer;
         }
-        .history-card:hover { border-color: var(--primary-light); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+        .history-card:hover { 
+            border-color: var(--primary-light); 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
+            transform: translateY(-2px);
+        }
         .hc-top {
-            padding: 12px 14px 10px; display: flex; align-items: flex-start;
-            justify-content: space-between; gap: 8px;
+            padding: 12px 14px 8px; display: flex; align-items: flex-start;
+            justify-content: space-between; gap: 8px; flex-shrink: 0;
         }
         .hc-id-badge {
             font-size: 10px; font-weight: 800; color: var(--primary-dim); letter-spacing: 0.8px;
@@ -1168,30 +1346,157 @@
         }
         [data-theme="dark"] .hc-id-badge { background: rgba(76,175,80,0.18); }
         .hc-time { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 3px; }
-        .hc-actions { display: flex; gap: 6px; flex-shrink: 0; align-items: center; }
+        .hc-actions { display: flex; gap: 5px; flex-shrink: 0; align-items: center; }
         .hc-edit-btn {
             background: rgba(76,175,80,0.09);
             border: 1.5px solid rgba(76,175,80,0.30);
-            color: var(--primary); border-radius: 9px; padding: 6px 11px;
-            font-size: 11px; font-weight: 700; cursor: pointer; letter-spacing: 0.3px;
+            color: var(--primary); border-radius: 9px; padding: 6px 10px;
+            font-size: 11px; font-weight: 700; cursor: pointer;
             font-family: inherit; transition: background 0.12s;
-            display: flex; align-items: center; gap: 5px;
+            display: flex; align-items: center; justify-content: center; gap: 4px;
         }
         .hc-edit-btn:hover { background: rgba(76,175,80,0.16); }
         .hc-print-btn {
             background: var(--bg); border: 1.5px solid var(--border);
-            color: var(--text-muted); border-radius: 9px; padding: 6px 10px;
+            color: var(--text-muted); border-radius: 9px; padding: 6px 9px;
             font-size: 11px; font-weight: 600; cursor: pointer;
             font-family: inherit; transition: background 0.12s;
+            display: flex; align-items: center; justify-content: center;
         }
         .hc-print-btn:hover { background: var(--border); }
-        .hc-body { padding: 2px 14px 12px; }
-        .hc-items-text { font-size: 13px; color: var(--text); line-height: 1.55; opacity: 0.72; }
-        .hc-total-row {
-            display: flex; align-items: center; justify-content: flex-end;
-            padding: 8px 14px 11px; border-top: 1px dashed var(--border);
+        .hc-delete-btn {
+            background: rgba(255,59,48,0.09);
+            border: 1.5px solid rgba(255,59,48,0.30);
+            color: #FF3B30; border-radius: 9px; padding: 6px 9px;
+            font-size: 11px; font-weight: 700; cursor: pointer;
+            font-family: inherit; transition: background 0.12s;
+            display: flex; align-items: center; justify-content: center;
         }
+        .hc-delete-btn:hover { background: rgba(255,59,48,0.16); }
+        
+        .hc-body { padding: 0 14px 4px; flex: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+        .hc-items-text { 
+            font-size: 13px; color: var(--text); line-height: 1.45; opacity: 0.72;
+            display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;
+            overflow: hidden; text-overflow: ellipsis;
+        }
+        .hc-total-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 14px 10px; border-top: 1px dashed var(--border);
+            background: rgba(0,0,0,0.01); flex-shrink: 0;
+        }
+        [data-theme="dark"] .hc-total-row { background: rgba(255,255,255,0.01); }
         .hc-total-amt { font-size: 15px; font-weight: 800; color: var(--primary); }
+
+        /* Dedicated History Detail Modal Styles */
+        .history-detail-box {
+            max-width: 420px !important;
+            width: 90%;
+            border-radius: var(--radius);
+            padding: 0 !important;
+            display: flex;
+            flex-direction: column;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .hd-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hd-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .hd-close-btn {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            transition: color 0.15s;
+        }
+        .hd-close-btn:hover {
+            color: var(--text);
+        }
+        .hd-content {
+            padding: 20px;
+            max-height: 50vh;
+            overflow-y: auto;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+        }
+        .hd-receipt-preview {
+            width: 100%;
+            max-width: 320px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e0e0e0;
+            color: #000000;
+        }
+        [data-theme="dark"] .hd-receipt-preview {
+            background: #ffffff;
+            color: #000000;
+            border-color: #e0e0e0;
+        }
+        .hd-footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .hd-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s ease;
+        }
+        .hd-btn-print {
+            background: var(--primary);
+            border: 1px solid var(--primary);
+            color: white;
+        }
+        .hd-btn-print:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(76,175,80,0.25);
+        }
+        .hd-btn-edit {
+            background: rgba(76,175,80,0.09);
+            border: 1.5px solid rgba(76,175,80,0.30);
+            color: var(--primary);
+        }
+        .hd-btn-edit:hover {
+            background: rgba(76,175,80,0.16);
+        }
+        .hd-btn-delete {
+            background: rgba(255,59,48,0.09);
+            border: 1.5px solid rgba(255,59,48,0.30);
+            color: #ff3b30;
+        }
+        .hd-btn-delete:hover {
+            background: rgba(255,59,48,0.16);
+            box-shadow: 0 4px 12px rgba(255,59,48,0.15);
+        }
 
         @media (min-width: 1024px) {
             #historyList {
@@ -1237,8 +1542,8 @@
             .menu-area {
                 grid-auto-rows: minmax(104px, auto) !important;
             }
-            .drink-btn { min-height: 100px; }
-            .drink-icon-box { width: 52px !important; height: 52px !important; min-width: 52px !important; }
+            .drink-btn { min-height: 100px; gap: 16px !important; }
+            .drink-icon-box { width: 76px !important; height: 76px !important; min-width: 76px !important; }
             .drink-name { font-size: 14px !important; }
 
             /* FinView — page container */
@@ -1285,9 +1590,40 @@
         }
 
         @media print {
-            body, .app-header, .main-stage, .bottom-nav, #modal, #historyPage, #managerPage, #editorModal, #inventoryPage, #invEditorModal { display: none !important; }
-            #receiptContainer { display: block !important; position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 0; }
-            .receipt-paper { box-shadow: none; border: none; width: 100%; max-width: 100%; margin: 0; }
+            @page {
+                size: 80mm auto;
+                margin: 0;
+            }
+            html, body {
+                width: 80mm;
+                background: white !important;
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            body > *:not(#receiptContainer) { display: none !important; }
+            #receiptContainer {
+                display: block !important;
+                position: relative;
+                width: 80mm !important;
+                margin: 0 auto !important;
+                padding: 6mm 4mm !important;
+                box-sizing: border-box;
+                background: white !important;
+            }
+            .receipt-paper {
+                box-shadow: none !important;
+                border: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                color: black !important;
+                font-family: 'Courier Prime', monospace !important;
+                text-align: center !important;
+            }
         }
     </style>
 </head>
@@ -1302,10 +1638,10 @@
 
         <!-- ── Logo section: transitions from center (Phase 1) to top (Phase 2) ── -->
         <div id="loginLogoSection">
-            <img src="./Logo.png" class="login-logo-img" alt="My Day Matcha">
+            <img src="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG" class="login-logo-img" alt="So-A">
             <!-- Brand text — visible in Phase 1 (user selection) -->
             <div id="loginBrandBlock">
-                <div class="login-brand-name">My Day Matcha</div>
+                <div class="login-brand-name">So-A</div>
                 <div class="login-brand-tagline">Your daily matcha companion</div>
             </div>
             <!-- User name — visible in Phase 2 (PIN entry) -->
@@ -1326,19 +1662,6 @@
 
         <!-- ── PIN / biometric step (Phase 2) ── -->
         <div id="pinContainer">
-            <!-- Face ID / Touch ID button — always shown above numpad when registered -->
-            <button id="faceIdLoginBtn" onclick="doFaceIdLogin()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M2 8V4a2 2 0 0 1 2-2h4"/><path d="M22 8V4a2 2 0 0 0-2-2h-4"/>
-                    <path d="M2 16v4a2 2 0 0 0 2 2h4"/><path d="M22 16v4a2 2 0 0 1-2 2h-4"/>
-                    <circle cx="9" cy="11" r="1.5" fill="currentColor" stroke="none"/>
-                    <circle cx="15" cy="11" r="1.5" fill="currentColor" stroke="none"/>
-                    <path d="M8 15.5c1.33 1.2 6.67 1.2 8 0"/>
-                </svg>
-                Use Face ID / Touch ID
-            </button>
-            <!-- "or enter PIN" divider — only shown when Face ID button is also visible -->
-            <div class="pin-or-label" id="pinOrLabel" style="display:none;">or PIN</div>
 
             <!-- Numpad section — always visible in PIN phase -->
             <div id="numpadSection">
@@ -1382,7 +1705,7 @@
     <!-- PIN verification loading overlay (outside loginScreen so it covers everything) -->
     <div id="pinLoadingOverlay">
         <div class="pin-loading-logo-wrap">
-            <img src="./Logo.png" class="pin-loading-logo" alt="">
+            <img src="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG" class="pin-loading-logo" alt="">
             <svg class="pin-loading-ring" viewBox="0 0 80 80" fill="none">
                 <circle cx="40" cy="40" r="36" stroke="var(--border)" stroke-width="3.5"/>
                 <circle cx="40" cy="40" r="36" stroke="var(--primary)" stroke-width="3.5"
@@ -1405,18 +1728,7 @@
         </div>
     </div>
 
-    <!-- Face ID / Touch ID toggle confirmation sheet -->
-    <div id="faceIdConfirmSheet" onclick="if(event.target===this)hideFaceIdConfirmSheet()">
-        <div id="faceIdConfirmSheetBox">
-            <div class="sheet-handle"></div>
-            <div class="sheet-title" id="faceIdConfirmTitle">Enable Face ID / Touch ID?</div>
-            <div class="sheet-msg" id="faceIdConfirmMsg">Use your face or fingerprint to sign in faster. Your PIN remains as a backup.</div>
-            <div class="sheet-btns">
-                <button onclick="hideFaceIdConfirmSheet()" class="btn btn-clear" style="font-size:13px;">Cancel</button>
-                <button id="faceIdConfirmOkBtn" onclick="confirmFaceIdToggle()" class="btn btn-confirm" style="font-size:13px;">Enable</button>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Logout confirmation overlay -->
     <div id="logoutConfirmOverlay">
@@ -1432,8 +1744,8 @@
 
     <header class="app-header">
         <div class="brand">
-            <img src="./Logo.png" class="app-logo">
-            MY DAY MATCHA
+            <img src="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG" class="app-logo">
+            So-A
         </div>
         <div style="display:flex; align-items:center; gap:4px;">
             <button id="syncBtn" class="sync-btn" onclick="forceSync()" title="Force Sync Data">
@@ -1451,9 +1763,9 @@
 
     <aside class="desk-sidebar" id="deskSidebar">
         <div class="desk-brand">
-            <img src="./Logo.png" class="desk-brand-logo" alt="My Day Matcha">
+            <img src="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG" class="desk-brand-logo" alt="So-A">
             <div>
-                <div class="desk-brand-name">My Day Matcha</div>
+                <div class="desk-brand-name">So-A</div>
                 <div class="desk-brand-user" id="deskUserDisplay"></div>
             </div>
         </div>
@@ -1463,46 +1775,26 @@
                 <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
                 Menu
             </button>
-            <button class="desk-nav-item" id="deskBtnAnalysis" onclick="openAnalysis()">
-                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="13" width="5" height="9" rx="1"/><rect x="9.5" y="8" width="5" height="14" rx="1"/><rect x="17" y="4" width="5" height="18" rx="1"/><line x1="1" y1="22" x2="23" y2="22"/></svg>
-                Analysis
-            </button>
-            <button class="desk-nav-item" id="deskBtnStock" onclick="openStock()">
-                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
-                Stock
-            </button>
             <button class="desk-nav-item" id="deskBtnHistory" onclick="openHistory()">
                 <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                History
-            </button>
-            <button class="desk-nav-item" id="deskBtnManager" onclick="openManager()">
-                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                Manage Menu
+                Order History
             </button>
         </nav>
         <div class="desk-sidebar-footer">
-            <a href="https://nanthe27.github.io/MyDayMatcha/staff/" class="desk-nav-item" style="text-decoration:none;">
-                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                Customer Loyalty
-            </a>
-            <button class="desk-nav-item" onclick="openProfileEdit()">
-                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Profile
-            </button>
             <button class="desk-nav-item" id="deskSyncBtn" onclick="forceSync()">
                 <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                 Sync Data
             </button>
-            <button class="desk-nav-item" onclick="toggleTheme()">
-                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <span id="deskThemeLabel">Theme</span>
+            <button class="desk-nav-item" id="deskBtnSettings" onclick="toggleSettings(true)">
+                <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Settings
             </button>
             <div class="desk-nav-divider"></div>
             <button class="desk-nav-item desk-nav-danger" onclick="logout()">
                 <svg class="desk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                 Logout
             </button>
-            <div class="desk-version" id="deskVersionDisplay">v5.1.1</div>
+            <div class="desk-version" id="deskVersionDisplay">v5.3.2</div>
         </div>
     </aside>
 
@@ -1513,32 +1805,12 @@
             <div class="cart-header">Current Order</div>
             <div class="cart-scroll-body">
                 <div class="cart-list" id="cartList"></div>
-                <div class="order-history-section collapsed" id="orderHistorySection">
-                    <div class="order-history-header" onclick="toggleOrderHistory()">
-                        <div class="order-history-title-group">
-                            <div class="order-history-arrow" id="orderHistoryArrow">▼</div>
-                            <span class="order-history-label">Recent Orders</span>
-                        </div>
-                        <span class="order-history-count" id="orderHistoryCount"></span>
-                    </div>
-                    <div class="order-history-body">
-                        <div id="orderHistoryList"></div>
-                    </div>
-                </div>
             </div>
             <div class="cart-footer">
                 <div class="total-row">
                     <span class="total-label" style="display:flex; align-items:center;">
                         TOTAL
-                        <select id="globalDiscountSelect" class="mini-select" onchange="updateGlobalDiscount(this.value)" style="margin-left:10px; margin-top:0;">
-                            <option value="0">No Disc</option>
-                            <option value="10">10% Off</option>
-                            <option value="15">15% Off</option>
-                            <option value="20">20% Off</option>
-                            <option value="30">30% Off</option>
-                            <option value="50">50% Off</option>
-                            <option value="100">Free</option>
-                        </select>
+                        <div id="globalDiscountContainer" class="custom-dropdown" style="margin-left:10px; margin-top:0; font-size:10px; font-weight:500;"></div>
                     </span>
                     <span class="total-display" id="totalDisplay">0 KHR</span>
                 </div>
@@ -1548,23 +1820,39 @@
 
         <div class="settings-area" id="settingsPanel">
             <div class="settings-header">
+                <button class="settings-back-btn" onclick="closeSettingsAndGoBack()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
                 <span class="settings-title">Settings</span>
             </div>
 
+            <!-- Profile Header for Mobile UI Settings -->
+            <div class="settings-profile-card">
+                <div class="settings-profile-avatar-circle" onclick="openProfileEdit()">
+                    <img id="mobileSettingsAvatar" src="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG" alt="Avatar">
+                </div>
+                <div class="settings-profile-info">
+                    <div class="settings-profile-name" id="mobileSettingsUserDisplay">Staff Member</div>
+                    <div class="settings-profile-tag">Authorized User</div>
+                </div>
+            </div>
+
+            <!-- Group 1: Reports & Inventory -->
             <div class="settings-section">
-                <div class="settings-section-label">Preferences</div>
+                <div class="settings-section-label">Management & Reports</div>
                 <div class="settings-group">
-                    <div class="setting-card" onclick="toggleTheme()">
-                        <div class="setting-icon" style="background:#5856d6"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
-                        <div class="setting-label">Theme</div>
-                        <div class="setting-val" id="themeDisplay">Light Mode</div>
+                    <div class="setting-card" onclick="openAnalysis()">
+                        <div class="setting-icon" style="background:#ff9500"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="5" height="9" rx="1"/><rect x="9.5" y="8" width="5" height="14" rx="1"/><rect x="17" y="4" width="5" height="18" rx="1"/><line x1="1" y1="22" x2="23" y2="22"/></svg></div>
+                        <div class="setting-label">Analysis</div>
+                        <div class="setting-val">›</div>
                     </div>
                     <div class="setting-divider"></div>
-                    <div class="setting-card" onclick="openHistory()">
-                        <div class="setting-icon" style="background:#007aff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                        <div class="setting-label">History</div>
-                        <div class="setting-val">View ›</div>
+                    <div class="setting-card" onclick="openStock()">
+                        <div class="setting-icon" style="background:#34aadc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+                        <div class="setting-label">Stock Management</div>
+                        <div class="setting-val">›</div>
                     </div>
+
                     <div class="setting-divider"></div>
                     <div class="setting-card" onclick="openManager()">
                         <div class="setting-icon" style="background:#34c759"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></div>
@@ -1574,41 +1862,43 @@
                 </div>
             </div>
 
+            <!-- Group 2: Customer Portal -->
             <div class="settings-section">
-                <div class="settings-section-label">Quick Access</div>
-                <a href="https://nanthe27.github.io/MyDayMatcha/staff/" class="loyalty-btn" style="text-decoration:none;">
-                    <div class="setting-icon" style="background:rgba(255,255,255,0.2)"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                    <span class="loyalty-title">Customer Loyalty</span>
-                    <svg style="opacity:.7" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                </a>
-            </div>
-
-            <!-- Face ID / Touch ID in its own Security section, away from Logout -->
-            <div class="settings-section" id="faceIdSettingSection" style="display:none;">
-                <div class="settings-section-label">Security</div>
+                <div class="settings-section-label">Customer & Branding</div>
                 <div class="settings-group">
-                    <div id="faceIdSettingRow" class="setting-card" onclick="toggleFaceId()">
-                        <div class="setting-icon" style="background:#5856d6">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M2 8V4a2 2 0 0 1 2-2h4"/><path d="M22 8V4a2 2 0 0 0-2-2h-4"/>
-                                <path d="M2 16v4a2 2 0 0 0 2 2h4"/><path d="M22 16v4a2 2 0 0 1-2 2h-4"/>
-                                <circle cx="9" cy="11" r="1.5" fill="white" stroke="none"/>
-                                <circle cx="15" cy="11" r="1.5" fill="white" stroke="none"/>
-                                <path d="M8 15.5c1.33 1.2 6.67 1.2 8 0"/>
-                            </svg>
-                        </div>
-                        <div class="setting-label">Face ID / Touch ID</div>
-                        <div class="setting-val" id="faceIdStatus">Off</div>
-                    </div>
+                    <a href="https://nanthe27.github.io/So-A/staff/" class="setting-card" style="text-decoration:none;">
+                        <div class="setting-icon" style="background:#ff2d55"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                        <div class="setting-label">Customer Loyalty</div>
+                        <div class="setting-val">Open ›</div>
+                    </a>
                 </div>
             </div>
 
+            <!-- Group 3: Personalization & Theme -->
             <div class="settings-section">
-                <div class="settings-section-label">Profile</div>
+                <div class="settings-section-label">System & Personalization</div>
                 <div class="settings-group">
                     <div class="setting-card" onclick="openProfileEdit()">
                         <div class="setting-icon" style="background:#007aff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                         <div class="setting-label">Edit Profile Image</div>
+                        <div class="setting-val">›</div>
+                    </div>
+                    <div class="setting-divider"></div>
+                    <div class="setting-card" onclick="toggleTheme()">
+                        <div class="setting-icon" style="background:#ffcc00"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+                        <div class="setting-label">Theme Mode</div>
+                        <div class="setting-val" id="themeDisplay">Light Mode</div>
+                    </div>
+                    <div class="setting-divider"></div>
+                    <div class="setting-card" onclick="openRatesModal()">
+                        <div class="setting-icon" style="background:#5856d6"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div class="setting-label">Exchange Rates</div>
+                        <div class="setting-val" id="exchangeRateDisplay">Loading...</div>
+                    </div>
+                    <div class="setting-divider"></div>
+                    <div class="setting-card" onclick="forceSync()">
+                        <div class="setting-icon" style="background:#5856d6"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+                        <div class="setting-label">Sync Data</div>
                         <div class="setting-val">›</div>
                     </div>
                 </div>
@@ -1619,37 +1909,21 @@
                 <div class="settings-group">
                     <div class="setting-card" onclick="logout()">
                         <div class="setting-icon" style="background:#ff3b30"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div>
-                        <div class="setting-label" style="color:#FF3B30;">Logout</div>
-                        <div class="setting-val" style="color:#FF3B30;">›</div>
+                        <div class="setting-label" style="color:#ff3b30; font-weight: 600;">Logout</div>
+                        <div class="setting-val" style="color:#ff3b30;">›</div>
                     </div>
                 </div>
             </div>
 
-            <div class="desktop-nav-group">
-                <div class="settings-section-label">App Navigation</div>
-                <div class="settings-group">
-                    <div class="setting-card" onclick="openAnalysis()">
-                        <div class="setting-icon" style="background:#ff9500"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="13" width="5" height="9" rx="1"/><rect x="9.5" y="8" width="5" height="14" rx="1"/><rect x="17" y="4" width="5" height="18" rx="1"/><line x1="1" y1="22" x2="23" y2="22"/></svg></div>
-                        <div class="setting-label">Analysis</div>
-                        <div class="setting-val">›</div>
-                    </div>
-                    <div class="setting-card" onclick="openStock()">
-                        <div class="setting-icon" style="background:#34aadc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
-                        <div class="setting-label">Stock Management</div>
-                        <div class="setting-val">›</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="settings-footer" id="settingsVersionDisplay">v5.1.1</div>
+            <div class="settings-footer" id="settingsVersionDisplay">v5.3.2</div>
         </div>
     </div>
 
     <div class="bottom-nav">
         <button class="nav-item active" onclick="switchTab('menu')" id="btnMenu">MENU</button>
-        <button class="nav-item" onclick="switchTab('cart')" id="btnCart">ORDER <span id="navBadge" class="nav-badge">0</span></button>
-        <button class="nav-item" onclick="openAnalysis()" id="btnAnalysis">ANALYSIS</button>
-        <button class="nav-item" onclick="openStock()" id="btnStock">STOCK</button>
+        <button class="nav-item" onclick="switchTab('cart')" id="btnCart">ORDERS <span id="navBadge" class="nav-badge">0</span></button>
+        <button class="nav-item" onclick="openHistory()" id="btnHistory">HISTORY</button>
+        <button class="nav-item" onclick="toggleSettings()" id="btnSettingsMobile">SETTING</button>
     </div>
 
     <div id="modal" class="modal-overlay">
@@ -1664,10 +1938,37 @@
         </div>
     </div>
 
+    <!-- Dedicated History Detail Modal -->
+    <div id="historyDetailModal" class="modal-overlay" onclick="closeHistoryDetail()">
+        <div class="modal-box history-detail-box" onclick="event.stopPropagation()">
+            <div class="hd-header">
+                <span class="hd-title">Receipt Details</span>
+                <button class="hd-close-btn" onclick="closeHistoryDetail()">&times;</button>
+            </div>
+            <div class="hd-content">
+                <div class="hd-receipt-preview"></div>
+            </div>
+            <div class="hd-footer">
+                <button class="hd-btn hd-btn-print" id="hdPrintBtn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    Print
+                </button>
+                <button class="hd-btn hd-btn-edit" id="hdEditBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    Edit
+                </button>
+                <button class="hd-btn hd-btn-delete" id="hdDeleteBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="historyPage" class="modal-overlay" style="flex-direction:column; justify-content:start; background:var(--bg);">
         <div class="app-header" style="width:100%;">
-            <button class="text-btn" style="font-size:28px; line-height:1; padding:0 15px;" onclick="document.getElementById('historyPage').classList.remove('open')">‹</button>
-            <span id="historyTotalTitle" style="font-weight:700; color:var(--primary); font-size:18px;">0 KHR</span>
+            <button class="text-btn" style="font-size:28px; line-height:1; padding:0 15px;" onclick="document.getElementById('historyPage').classList.remove('open'); switchTab('menu');">‹</button>
+            <span id="historyTotalTitle" class="blur-amount" style="font-weight:700; color:var(--primary); font-size:18px;" onclick="this.classList.toggle('revealed')">0 KHR</span>
             <button class="text-btn" style="color:#FF3B30;" onclick="requestDeleteHistory()">DELETE ALL</button>
         </div>
         <div class="month-nav">
@@ -1681,7 +1982,7 @@
 
     <div id="managerPage" class="modal-overlay" style="flex-direction:column; justify-content:start; background:var(--bg);">
         <div class="app-header" style="width:100%;">
-            <button class="text-btn" style="font-size:28px; line-height:1; padding:0 15px;" onclick="document.getElementById('managerPage').classList.remove('open')">‹</button>
+            <button class="text-btn" style="font-size:28px; line-height:1; padding:0 15px;" onclick="document.getElementById('managerPage').classList.remove('open'); toggleSettings(true);">‹</button>
             <span style="font-weight:700; color:var(--primary); font-size:16px;">MANAGE MENU</span>
             <button class="text-btn" style="color:var(--primary);" onclick="newItem()">+ ADD</button>
         </div>
@@ -1690,7 +1991,7 @@
 
     <div id="inventoryPage" class="modal-overlay" style="flex-direction:column; justify-content:start; background:var(--bg);">
         <div class="app-header" style="width:100%;">
-            <button class="text-btn" style="font-size:28px; line-height:1; padding:0 15px;" onclick="switchTab('menu')">‹</button>
+            <button class="text-btn" style="font-size:28px; line-height:1; padding:0 15px;" onclick="document.getElementById('inventoryPage').classList.remove('open'); toggleSettings(true);">‹</button>
             <span id="finPageTitle" style="font-weight:700; color:var(--primary); font-size:16px; letter-spacing:-0.3px;">Analysis</span>
             <div style="width:40px;"></div>
         </div>
@@ -1917,7 +2218,7 @@
     <div id="receiptContainer"></div>
 
     <script>
-        const APP_VERSION = 'v5.1.1';
+        const APP_VERSION = 'v5.3.2';
 
         function showToast(msg, duration = 2200) {
             const t = document.getElementById('toast');
@@ -1928,7 +2229,7 @@
 
         // Force all users to re-login on this version update
         (function() {
-            const FL_VER = 'v5.1.1';
+            const FL_VER = 'v5.3.2';
             if (localStorage.getItem('myday_force_logout_ver') !== FL_VER) {
                 localStorage.removeItem('myday_session');
                 localStorage.setItem('myday_force_logout_ver', FL_VER);
@@ -1956,6 +2257,8 @@
         let globalOrderDiscount = 0;
         let historyMonthDate = new Date();
         let finMonthDate = new Date();
+        let usdRate = 4000;
+        let thbRate = 10000; // 10000 KHR per 100 THB
 
         function fmtMonthKey(d) {
             const M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -2035,179 +2338,8 @@
             setInterval(scheduleCheck, 5 * 60 * 1000);
         }
 
-        // ─── Face ID / WebAuthn helpers ───────────────────────────────────────────
-
-        /** Check if this device supports platform biometrics; show Face ID setting if yes */
-        async function checkFaceIdAvailable() {
-            if (!window.PublicKeyCredential) return;
-            try {
-                const ok = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
-                if (ok) {
-                    const section = document.getElementById('faceIdSettingSection');
-                    if (section) section.style.display = '';
-                    updateFaceIdSettingUI();
-                }
-            } catch(e) {}
-        }
-
-        /** Refresh the Face ID On/Off label in settings for the current user */
-        function updateFaceIdSettingUI() {
-            const enabled = deviceName && localStorage.getItem('myday_faceid_enabled_' + deviceName) === 'true';
-            const el = document.getElementById('faceIdStatus');
-            if (el) el.innerText = enabled ? 'On' : 'Off';
-        }
-
-        /** Toggle Face ID on/off — shows a confirmation sheet first */
-        let _pendingFaceIdEnable = false;
-        function toggleFaceId() {
-            const enabled = deviceName && localStorage.getItem('myday_faceid_enabled_' + deviceName) === 'true';
-            _pendingFaceIdEnable = !enabled;
-            document.getElementById('faceIdConfirmTitle').textContent =
-                enabled ? 'Disable Face ID / Touch ID?' : 'Enable Face ID / Touch ID?';
-            document.getElementById('faceIdConfirmMsg').textContent = enabled
-                ? "You'll need to enter your PIN every time you sign in."
-                : 'Use your face or fingerprint to sign in faster. Your PIN remains as a backup.';
-            const okBtn = document.getElementById('faceIdConfirmOkBtn');
-            okBtn.textContent = enabled ? 'Turn Off' : 'Enable';
-            okBtn.style.background = enabled ? '#FF3B30' : '';
-            okBtn.style.borderColor = enabled ? '#FF3B30' : '';
-            document.getElementById('faceIdConfirmSheet').classList.add('open');
-        }
-        function hideFaceIdConfirmSheet() {
-            document.getElementById('faceIdConfirmSheet').classList.remove('open');
-        }
-        function confirmFaceIdToggle() {
-            hideFaceIdConfirmSheet();
-            if (_pendingFaceIdEnable) enableFaceId(); else disableFaceId();
-        }
-
-        /** Register a WebAuthn platform credential (Face ID / Touch ID) for the current user */
-        async function enableFaceId() {
-            if (!window.PublicKeyCredential) { alert('WebAuthn is not supported on this browser.'); return; }
-            let avail = false;
-            try { avail = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable(); } catch(e) {}
-            if (!avail) { alert('Face ID / Touch ID is not available on this device.'); return; }
-
-            const challenge = crypto.getRandomValues(new Uint8Array(32));
-            // Use a unique userId per registration to avoid RP conflicts on re-registration
-            const userId = new TextEncoder().encode(deviceName + ':' + Date.now());
-            try {
-                const credential = await navigator.credentials.create({
-                    publicKey: {
-                        challenge,
-                        rp: { name: 'My Day Matcha', id: location.hostname },
-                        user: { id: userId, name: deviceName, displayName: deviceName },
-                        pubKeyCredParams: [
-                            { type: 'public-key', alg: -7   }, // ES256 — preferred on Apple devices
-                            { type: 'public-key', alg: -257 }  // RS256 — fallback
-                        ],
-                        authenticatorSelection: {
-                            authenticatorAttachment: 'platform', // enforce Face ID / Touch ID
-                            userVerification: 'required',
-                            residentKey: 'preferred'
-                        },
-                        timeout: 60000
-                    }
-                });
-
-                // Encode credential ID as URL-safe base64 for localStorage + sheet storage
-                const credId = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
-                localStorage.setItem('myday_faceid_cred_' + deviceName, credId);
-                localStorage.setItem('myday_faceid_enabled_' + deviceName, 'true');
-
-                // Persist to Google Sheet so any admin can audit / revoke
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ action: 'save_faceid', user: deviceName, credentialId: credId, enabled: true })
-                });
-
-                updateFaceIdSettingUI();
-                const t = document.getElementById('toast'); t.innerText = 'Face ID enabled!'; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000);
-            } catch(err) {
-                // NotAllowedError = user cancelled — silent. Other errors = show message.
-                if (err.name !== 'NotAllowedError') alert('Face ID setup failed: ' + err.message);
-            }
-        }
-
-        /** Clear the WebAuthn credential for the current user (both locally and in the sheet) */
-        async function disableFaceId() {
-            localStorage.removeItem('myday_faceid_cred_' + deviceName);
-            localStorage.removeItem('myday_faceid_enabled_' + deviceName);
-            try {
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ action: 'save_faceid', user: deviceName, credentialId: '', enabled: false })
-                });
-            } catch(e) {}
-            updateFaceIdSettingUI();
-            const t = document.getElementById('toast'); t.innerText = 'Face ID disabled.'; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000);
-        }
-
-        /** Attempt Face ID / Touch ID login for tempSelectedUser — called from the login screen button */
-        async function doFaceIdLogin() {
-            const username = tempSelectedUser;
-            if (!username) return;
-            const credId = localStorage.getItem('myday_faceid_cred_' + username);
-            if (!credId) { document.getElementById('faceIdLoginBtn').classList.remove('show'); return; }
-
-            const btn = document.getElementById('faceIdLoginBtn');
-            btn.disabled = true; btn.style.opacity = '0.6';
-
-            try {
-                const challenge   = crypto.getRandomValues(new Uint8Array(32));
-                const credIdBytes = Uint8Array.from(atob(credId), c => c.charCodeAt(0));
-
-                // Ask the device OS to verify biometrics — Face ID / Touch ID prompt appears here
-                await navigator.credentials.get({
-                    publicKey: {
-                        challenge,
-                        allowCredentials: [{ id: credIdBytes, type: 'public-key' }],
-                        userVerification: 'required',
-                        timeout: 60000
-                    }
-                });
-
-                // Device has verified the biometric; ask GAS to confirm credential ID matches
-                const res  = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ action: 'faceid_login', user: username, credentialId: credId })
-                });
-                const data = await res.json();
-
-                if (data.status === 'success') {
-                    deviceName = username;
-                    localStorage.setItem('myday_session', JSON.stringify({ user: deviceName, loginTime: Date.now() }));
-                    localStorage.setItem('myday_remembered_user', deviceName); // remember for next open
-                    const ude = document.getElementById('currentUserDisplay'); if (ude) ude.innerText = deviceName;
-                    const dude = document.getElementById('deskUserDisplay');   if (dude) dude.innerText = deviceName;
-                    document.querySelectorAll('.pin-dot').forEach(d => d.classList.add('active', 'success'));
-                    checkFaceIdAvailable();
-                    _onUnlocked(); // clear auto-lock state and restore Switch button
-                    _showPinLoading(true);
-                    setTimeout(() => {
-                        _showPinLoading(false);
-                        document.getElementById('loginScreen').classList.add('hidden');
-                        _backgroundSync();
-                    }, 1600);
-                } else {
-                    alert('Face ID login failed. Please enter your PIN instead.');
-                    showNumpad();
-                }
-            } catch(err) {
-                // NotAllowedError = user dismissed — quiet fallback to PIN
-                if (err.name !== 'NotAllowedError') alert('Face ID error. Please use your PIN.');
-                showNumpad();
-            } finally {
-                btn.disabled = false; btn.style.opacity = '';
-            }
-        }
-
         function showNumpad() {
             // Numpad is always visible in PIN phase — nothing to do here
-            // Kept for compatibility (called from doFaceIdLogin on fallback)
             const ns = document.getElementById('numpadSection');
             if (ns) ns.style.display = 'flex';
         }
@@ -2222,24 +2354,31 @@
             _startVersionPoller();
 
             fetchUsers(); fetchMenu();
-            checkFaceIdAvailable(); // detect biometric support and show setting if available
+
+            // Check if this reload is from a Force Sync
+            const isSyncReload = sessionStorage.getItem('myday_sync_reload') === 'true';
+            if (isSyncReload) {
+                sessionStorage.removeItem('myday_sync_reload');
+                const sessionStr = localStorage.getItem('myday_session');
+                if (sessionStr) {
+                    try {
+                        const sess = JSON.parse(sessionStr);
+                        if (sess && sess.user) {
+                            deviceName = sess.user;
+                            const ude = document.getElementById('currentUserDisplay'); if (ude) ude.innerText = deviceName;
+                            const dude = document.getElementById('deskUserDisplay');   if (dude) dude.innerText = deviceName;
+                            _updateProfileUI();
+                            document.getElementById('loginScreen').classList.add('hidden');
+                            _backgroundSync();
+                            return;
+                        }
+                    } catch(e) {}
+                }
+            }
 
             // Always require authentication on fresh page load.
             // This ensures the app auto-locks whenever it is closed or the browser is refreshed.
             showLogin();
-
-            // Auto-select remembered user so they skip the user grid (no Face ID auto-prompt)
-            const _rm = localStorage.getItem('myday_remembered_user');
-            if (_rm) {
-                setTimeout(() => {
-                    // Only auto-select if the user still exists in the grid
-                    const grid = document.getElementById('userGrid');
-                    const buttons = grid ? grid.querySelectorAll('.login-user-btn') : [];
-                    let found = false;
-                    buttons.forEach(btn => { if (btn.querySelector('.login-user-name') && btn.querySelector('.login-user-name').textContent.trim() === _rm) { found = true; } });
-                    if (found) selectUser(_rm);
-                }, 800);
-            }
         };
 
         function fetchUsers() {
@@ -2274,21 +2413,15 @@
             }
             const frag = document.createDocumentFragment();
             users.forEach(({ name, image }) => {
-                const credId = localStorage.getItem('myday_faceid_cred_' + name);
-                const fidOn  = localStorage.getItem('myday_faceid_enabled_' + name) === 'true';
-                const hasBio = !!(credId && fidOn);
                 const btn = document.createElement('button');
-                btn.className = 'login-user-btn' + (hasBio ? ' has-faceid' : '');
+                btn.className = 'login-user-btn';
                 btn.onclick = () => selectUser(name);
                 const avatarInner = image
                     ? `<img src="${image}" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><span style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">${name.charAt(0).toUpperCase()}</span>`
                     : name.charAt(0).toUpperCase();
                 btn.innerHTML =
-                    `<div class="login-user-avatar-circle">${avatarInner}` +
-                    (hasBio
-                        ? `<div class="login-user-faceid-badge"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 8V4a2 2 0 0 1 2-2h4"/><path d="M22 8V4a2 2 0 0 0-2-2h-4"/><path d="M2 16v4a2 2 0 0 0 2 2h4"/><path d="M22 16v4a2 2 0 0 1-2 2h-4"/></svg></div>`
-                        : '') +
-                    `</div><div class="login-user-name">${name}</div>`;
+                    `<div class="login-user-avatar-circle">${avatarInner}</div>` +
+                    `<div class="login-user-name">${name}</div>`;
                 frag.appendChild(btn);
             });
             grid.innerHTML = '';
@@ -2311,8 +2444,6 @@
             const pin     = document.getElementById('pinContainer');
             const updBtn  = document.getElementById('updateRefreshBtn');
             const switchBtn = document.getElementById('backToUsernameBtn');
-            const faceBtn = document.getElementById('faceIdLoginBtn');
-            const orLabel = document.getElementById('pinOrLabel');
             const numpadSection = document.getElementById('numpadSection');
 
             step.style.display = 'none';
@@ -2320,15 +2451,6 @@
 
             // Show selected user name and animate logo to top
             _showHeroAvatar(name);
-
-            // Face ID / Touch ID button — always shown if registered; numpad always visible
-            if (hasBiometric) {
-                faceBtn.classList.add('show');
-                if (orLabel) orLabel.style.display = 'block';
-            } else {
-                faceBtn.classList.remove('show');
-                if (orLabel) orLabel.style.display = 'none';
-            }
 
             // Numpad is always visible in PIN phase (no hiding even when Face ID prompts)
             if (numpadSection) {
@@ -2362,9 +2484,6 @@
         // Called when user taps a user button in the grid
         function selectUser(name) {
             tempSelectedUser = name; currentPin = ''; updatePinDisplay();
-            const credId = localStorage.getItem('myday_faceid_cred_' + name);
-            const fidOn  = localStorage.getItem('myday_faceid_enabled_' + name) === 'true';
-            const hasBio = !!(credId && fidOn);
 
             const step = document.getElementById('usernameStep');
             const updBtn = document.getElementById('updateRefreshBtn');
@@ -2380,10 +2499,8 @@
                 step.style.transition = ''; step.style.opacity = ''; step.style.transform = '';
                 if (updBtn) { updBtn.style.display = 'none'; updBtn.style.transition = ''; updBtn.style.opacity = ''; }
 
-                // Switch to PIN view — this also adds .pin-phase to #loginScreen
-                // which triggers CSS transitions: logo shrinks and moves to top,
-                // brand text fades out, username fades in, spacers collapse
-                _switchToPinView(name, hasBio, true);
+                // Switch to PIN view
+                _switchToPinView(name, false, true);
 
                 // Fade PIN container in from below
                 pin.style.opacity = '0'; pin.style.transform = 'translateY(16px)'; pin.style.transition = 'none';
@@ -2391,9 +2508,6 @@
                     pin.style.transition = 'opacity 0.28s ease, transform 0.28s cubic-bezier(0.2,0,0,1)';
                     pin.style.opacity = '1'; pin.style.transform = 'translateY(0)';
                 }));
-
-                // Face ID / Touch ID button is shown — user taps it to trigger biometric
-                // Do NOT auto-prompt; user must click the button themselves
             }, 180);
         }
 
@@ -2431,7 +2545,6 @@
             const step   = document.getElementById('usernameStep');
             const pin    = document.getElementById('pinContainer');
             const updBtn = document.getElementById('updateRefreshBtn');
-            const orLabel = document.getElementById('pinOrLabel');
 
             if (pin.style.display === 'flex') {
                 // Animate PIN container out
@@ -2457,8 +2570,6 @@
                 if (updBtn) updBtn.style.display = '';
             }
             tempSelectedUser = null; currentPin = '';
-            document.getElementById('faceIdLoginBtn').classList.remove('show');
-            if (orLabel) orLabel.style.display = 'none';
             // Numpad stays in DOM but pinContainer is hidden — just reset its inline styles
             const ns = document.getElementById('numpadSection');
             if (ns) { ns.style.opacity = ''; ns.style.transform = ''; ns.style.transition = ''; }
@@ -2537,11 +2648,9 @@
 
                     const userDisplayElement = document.getElementById('currentUserDisplay');
                     if (userDisplayElement) { userDisplayElement.innerText = deviceName; }
-                    const deskUDE = document.getElementById('deskUserDisplay');
-                    if (deskUDE) deskUDE.innerText = deviceName;
+                    _updateProfileUI();
 
                     document.querySelectorAll('.pin-dot').forEach(d => d.classList.add('active', 'success'));
-                    checkFaceIdAvailable();
                     _onUnlocked(); // clear auto-lock state and restore Switch button
                     setTimeout(() => {
                         _showPinLoading(true);
@@ -2621,6 +2730,30 @@
             renderCart();
         }
 
+        function toggleCustomDropdown(event, trigger) {
+            event.stopPropagation();
+            const dropdown = trigger.parentElement;
+            const isOpen = dropdown.classList.contains('open');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('open'));
+            
+            if (!isOpen) {
+                dropdown.classList.add('open');
+            }
+        }
+
+        function selectCustomDropdownOption(uid, type, value) {
+            updateItem(uid, type, value);
+            // Close all dropdowns
+            document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('open'));
+        }
+
+        // Global listener to close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('open'));
+        });
+
         function renderCart() {
             const list = document.getElementById('cartList'); list.innerHTML = ''; let total = 0;
             currentOrder.forEach(item => {
@@ -2631,25 +2764,43 @@
                 const div = document.createElement('div'); div.className = 'cart-item';
                 div.innerHTML = `<div><div class="item-name">${item.name}</div>
                     ${item.hasMilk ? `
-                        <select class="mini-select" onchange="updateItem('${item.uid}','milk',this.value)">
-                            <option value="Milk" ${item.milkOption === 'Milk' ? 'selected' : ''}>Milk</option>
-                            <option value="Oat" ${item.milkOption === 'Oat' ? 'selected' : ''}>Oat (+${item.oatPrice} KHR)</option>
-                        </select>
+                        <div class="custom-dropdown">
+                            <div class="custom-dropdown-trigger" onclick="toggleCustomDropdown(event, this)">
+                                <span>${item.milkOption || 'Milk'}</span>
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="custom-dropdown-menu">
+                                <div class="custom-dropdown-item ${item.milkOption === 'Milk' ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','milk','Milk')">Milk</div>
+                                <div class="custom-dropdown-item ${item.milkOption === 'Oat' ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','milk','Oat')">Oat (+${item.oatPrice} KHR)</div>
+                            </div>
+                        </div>
                     ` : ''}
-                    <select class="mini-select" onchange="updateItem('${item.uid}','sweet',this.value)">
-                        <option ${item.sweetness === '100%' ? 'selected' : ''}>100%</option>
-                        <option ${item.sweetness === '75%' ? 'selected' : ''}>75%</option>
-                        <option ${item.sweetness === '50%' ? 'selected' : ''}>50%</option>
-                        <option ${item.sweetness === '0%' ? 'selected' : ''}>0%</option>
-                    </select>
-                    <select class="mini-select" onchange="updateItem('${item.uid}','discount',this.value)">
-                        <option value="0" ${item.discount == 0 ? 'selected' : ''}>No Disc</option>
-                        <option value="10" ${item.discount == 10 ? 'selected' : ''}>10% Off</option>
-                        <option value="20" ${item.discount == 20 ? 'selected' : ''}>20% Off</option>
-                        <option value="30" ${item.discount == 30 ? 'selected' : ''}>30% Off</option>
-                        <option value="50" ${item.discount == 50 ? 'selected' : ''}>50% Off</option>
-                        <option value="100" ${item.discount == 100 ? 'selected' : ''}>Free</option>
-                    </select>
+                    <div class="custom-dropdown">
+                        <div class="custom-dropdown-trigger" onclick="toggleCustomDropdown(event, this)">
+                            <span>${item.sweetness}</span>
+                            <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="custom-dropdown-menu">
+                            <div class="custom-dropdown-item ${item.sweetness === '100%' ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','sweet','100%')">100%</div>
+                            <div class="custom-dropdown-item ${item.sweetness === '75%' ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','sweet','75%')">75%</div>
+                            <div class="custom-dropdown-item ${item.sweetness === '50%' ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','sweet','50%')">50%</div>
+                            <div class="custom-dropdown-item ${item.sweetness === '0%' ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','sweet','0%')">0%</div>
+                        </div>
+                    </div>
+                    <div class="custom-dropdown">
+                        <div class="custom-dropdown-trigger" onclick="toggleCustomDropdown(event, this)">
+                            <span>${item.discount == 0 ? 'No Disc' : (item.discount == 100 ? 'Free' : item.discount + '% Off')}</span>
+                            <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="custom-dropdown-menu">
+                            <div class="custom-dropdown-item ${item.discount == 0 ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','discount','0')">No Disc</div>
+                            <div class="custom-dropdown-item ${item.discount == 10 ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','discount','10')">10% Off</div>
+                            <div class="custom-dropdown-item ${item.discount == 20 ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','discount','20')">20% Off</div>
+                            <div class="custom-dropdown-item ${item.discount == 30 ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','discount','30')">30% Off</div>
+                            <div class="custom-dropdown-item ${item.discount == 50 ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','discount','50')">50% Off</div>
+                            <div class="custom-dropdown-item ${item.discount == 100 ? 'selected' : ''}" onclick="selectCustomDropdownOption('${item.uid}','discount','100')">Free</div>
+                        </div>
+                    </div>
                     </div>
                     <div style="text-align:right"><div class="item-price">${p.toLocaleString()} KHR</div><button class="del-btn" onclick="removeItem('${item.uid}')">×</button></div>`;
                 list.appendChild(div);
@@ -2657,6 +2808,25 @@
             
             let finalTotal = total - (total * globalOrderDiscount / 100);
             document.getElementById('totalDisplay').innerText = finalTotal.toLocaleString() + ' KHR';
+
+            const globalDiscContainer = document.getElementById('globalDiscountContainer');
+            if (globalDiscContainer) {
+                const labelText = globalOrderDiscount === 0 ? 'No Disc' : (globalOrderDiscount === 100 ? 'Free' : globalOrderDiscount + '% Off');
+                globalDiscContainer.innerHTML = `
+                    <div class="custom-dropdown-trigger" onclick="toggleCustomDropdown(event, this)" style="min-width:76px; padding:4px 6px;">
+                        <span>${labelText}</span>
+                        <svg width="8" height="5" viewBox="0 0 8 5" fill="none"><path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="custom-dropdown-menu" style="bottom:100%; top:auto; margin-bottom:4px; margin-top:0; min-width:82px;">
+                        <div class="custom-dropdown-item ${globalOrderDiscount === 0 ? 'selected' : ''}" onclick="updateGlobalDiscount(0)">No Disc</div>
+                        <div class="custom-dropdown-item ${globalOrderDiscount === 20 ? 'selected' : ''}" onclick="updateGlobalDiscount(20)">20% Off</div>
+                        <div class="custom-dropdown-item ${globalOrderDiscount === 50 ? 'selected' : ''}" onclick="updateGlobalDiscount(50)">50% Off</div>
+                        <div class="custom-dropdown-item ${globalOrderDiscount === 60 ? 'selected' : ''}" onclick="updateGlobalDiscount(60)">60% Off</div>
+                        <div class="custom-dropdown-item ${globalOrderDiscount === 80 ? 'selected' : ''}" onclick="updateGlobalDiscount(80)">80% Off</div>
+                        <div class="custom-dropdown-item ${globalOrderDiscount === 100 ? 'selected' : ''}" onclick="updateGlobalDiscount(100)">Free</div>
+                    </div>
+                `;
+            }
             
             const badge = document.getElementById('navBadge'); badge.innerText = currentOrder.length;
             if(currentOrder.length > 0) badge.classList.add('show'); else badge.classList.remove('show');
@@ -2677,20 +2847,21 @@
             if(currentOrder.length > 0) openModal('CLEAR', 'Reset cart?', () => { 
                 currentOrder = []; 
                 globalOrderDiscount = 0;
-                document.getElementById('globalDiscountSelect').value = '0';
                 renderCart(); 
             }); 
         }
         
         let _orderHistoryLastFetch = 0;
         function toggleOrderHistory() {
-            document.getElementById('orderHistorySection').classList.toggle('collapsed');
+            const section = document.getElementById('orderHistorySection');
+            if (section) section.classList.toggle('collapsed');
         }
 
         function _loadOrderHistory() {
             // Auto-expand the section when the cart tab is opened
             const section = document.getElementById('orderHistorySection');
-            if (section) section.classList.remove('collapsed');
+            if (!section) return;
+            section.classList.remove('collapsed');
             const mk = fmtMonthKey(new Date());
             const cached = localStorage.getItem('myday_history_' + mk);
             if (cached) _renderOrderHistory(JSON.parse(cached));
@@ -2747,6 +2918,30 @@
             });
         }
 
+        function _setMobileActiveNav(activeId) {
+            ['btnMenu', 'btnCart', 'btnHistory', 'btnSettingsMobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.toggle('active', id === activeId);
+            });
+        }
+
+        function _updateProfileUI() {
+            const name = deviceName || 'Staff Member';
+            const cacheImg = name ? localStorage.getItem('myday_profile_img_' + name) : null;
+            const fallbackLogo = 'https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG';
+            
+            const mobileName = document.getElementById('mobileSettingsUserDisplay');
+            if (mobileName) mobileName.innerText = name;
+            
+            const mobileAvatar = document.getElementById('mobileSettingsAvatar');
+            if (mobileAvatar) {
+                mobileAvatar.src = cacheImg || fallbackLogo;
+            }
+            
+            const deskUser = document.getElementById('deskUserDisplay');
+            if (deskUser) deskUser.innerText = name;
+        }
+
         function switchTab(t) {
             document.getElementById('historyPage').classList.remove('open');
             document.getElementById('managerPage').classList.remove('open');
@@ -2763,11 +2958,7 @@
             if (t === 'cart') { panel.classList.add('active'); _loadOrderHistory(); } else panel.classList.remove('active');
             _deskNavActive(t === 'menu' ? 'deskBtnMenu' : '');
 
-            document.getElementById('btnMenu').classList.toggle('active', t === 'menu');
-            document.getElementById('btnCart').classList.toggle('active', t === 'cart');
-            var _bA = document.getElementById('btnAnalysis'); if (_bA) _bA.classList.remove('active');
-            var _bS = document.getElementById('btnStock'); if (_bS) _bS.classList.remove('active');
-
+            _setMobileActiveNav(t === 'menu' ? 'btnMenu' : 'btnCart');
             toggleSettings(false);
         }
 
@@ -2811,17 +3002,56 @@
             const cached = localStorage.getItem('myday_users');
             if (cached) { try { renderUsers(JSON.parse(cached)); } catch(e) {} }
             showToast('Profile updated');
+            _updateProfileUI();
+        }
+
+        let previousPageBeforeSettings = 'menu';
+
+        function closeSettingsAndGoBack() {
+            toggleSettings(false);
+            if (previousPageBeforeSettings === 'history') {
+                openHistory();
+            } else if (previousPageBeforeSettings === 'cart') {
+                switchTab('cart');
+            } else {
+                switchTab('menu');
+            }
         }
 
         function toggleSettings(forceState) {
             const panel = document.getElementById('settingsPanel');
             const btn = document.getElementById('hamburgerBtn');
+            let isAct = false;
             if (forceState !== undefined) {
-                if(forceState) { panel.classList.add('active'); btn.classList.add('active'); }
-                else { panel.classList.remove('active'); btn.classList.remove('active'); }
+                if(forceState) { panel.classList.add('active'); btn.classList.add('active'); isAct = true; }
+                else { panel.classList.remove('active'); btn.classList.remove('active'); isAct = false; }
             } else {
                 panel.classList.toggle('active');
                 btn.classList.toggle('active');
+                isAct = panel.classList.contains('active');
+            }
+            _deskNavActive(isAct ? 'deskBtnSettings' : 'deskBtnMenu');
+            if (isAct) {
+                const isCartActive = document.getElementById('cartPanel').classList.contains('active');
+                const isHistoryActive = document.getElementById('historyPage').classList.contains('open');
+                if (isHistoryActive) {
+                    previousPageBeforeSettings = 'history';
+                } else if (isCartActive) {
+                    previousPageBeforeSettings = 'cart';
+                } else {
+                    previousPageBeforeSettings = 'menu';
+                }
+                _setMobileActiveNav('btnSettingsMobile');
+            } else {
+                const isCartActive = document.getElementById('cartPanel').classList.contains('active');
+                const isHistoryActive = document.getElementById('historyPage').classList.contains('open');
+                if (isHistoryActive) {
+                    _setMobileActiveNav('btnHistory');
+                } else if (isCartActive) {
+                    _setMobileActiveNav('btnCart');
+                } else {
+                    _setMobileActiveNav('btnMenu');
+                }
             }
         }
 
@@ -2836,9 +3066,136 @@
             return groups;
         }
 
+        function applyPresetCash(amount, finalTotal, btnEl) {
+            const input = document.getElementById('cashReceivedInputKHR');
+            if (!input) return;
+            
+            // Clear other currency inputs on preset click for exact match KHR
+            const usdInput = document.getElementById('cashReceivedInputUSD');
+            const thbInput = document.getElementById('cashReceivedInputTHB');
+            if (usdInput) usdInput.value = '';
+            if (thbInput) thbInput.value = '';
+
+            input.value = amount;
+            
+            // Manage active styles for preset buttons
+            const presets = btnEl.parentNode.querySelectorAll('button');
+            presets.forEach(btn => {
+                btn.style.background = 'var(--bg)';
+                btn.style.borderColor = 'var(--border)';
+                btn.style.color = 'var(--text)';
+            });
+            
+            btnEl.style.background = 'var(--primary)';
+            btnEl.style.borderColor = 'var(--primary)';
+            btnEl.style.color = '#fff';
+            
+            updateChangeCalculation(finalTotal);
+        }
+
+        function updateChangeCalculation(finalTotal) {
+            const inputKHR = document.getElementById('cashReceivedInputKHR');
+            const inputUSD = document.getElementById('cashReceivedInputUSD');
+            const inputTHB = document.getElementById('cashReceivedInputTHB');
+            const row = document.getElementById('changeDisplayRow');
+            const label = document.getElementById('changeDisplayLabel');
+            const val = document.getElementById('changeDisplayVal');
+            const breakdownRow = document.getElementById('changeBreakdownRow');
+            const breakdownVal = document.getElementById('changeBreakdownVal');
+            const totalPaidEl = document.getElementById('paymentTotalPaid');
+            
+            if (!inputKHR || !inputUSD || !inputTHB || !row || !label || !val) return;
+            
+            const valKHRStr = inputKHR.value.trim();
+            const valUSDStr = inputUSD.value.trim();
+            const valTHBStr = inputTHB.value.trim();
+            
+            if (valKHRStr === '' && valUSDStr === '' && valTHBStr === '') {
+                // Neutral state
+                row.style.background = 'var(--bg)';
+                row.style.borderColor = 'var(--border)';
+                label.innerText = 'CHANGE DUE';
+                label.style.color = 'var(--text-muted)';
+                val.innerText = '0 KHR';
+                val.style.color = 'var(--text-muted)';
+                if (breakdownRow) breakdownRow.style.display = 'none';
+                if (totalPaidEl) totalPaidEl.innerText = '0 KHR';
+                return;
+            }
+            
+            const cashKHR = parseFloat(valKHRStr) || 0;
+            const cashUSD = parseFloat(valUSDStr) || 0;
+            const cashTHB = parseFloat(valTHBStr) || 0;
+            
+            // Calculate total paid in KHR equivalent
+            const totalPaidKHR = cashKHR + (cashUSD * usdRate) + (cashTHB * (thbRate / 100));
+            if (totalPaidEl) {
+                totalPaidEl.innerText = Math.round(totalPaidKHR).toLocaleString() + ' KHR';
+            }
+            
+            const change = totalPaidKHR - finalTotal;
+            
+            if (change >= 0) {
+                // Change due (Green)
+                row.style.background = 'rgba(76,175,80,0.08)';
+                row.style.borderColor = 'rgba(76,175,80,0.30)';
+                label.innerText = 'CHANGE DUE';
+                label.style.color = 'var(--primary)';
+                val.innerText = Math.round(change).toLocaleString() + ' KHR';
+                val.style.color = 'var(--primary)';
+                
+                if (change > 0 && breakdownRow && breakdownVal) {
+                    const changeUSD = change / usdRate;
+                    const changeTHB = change / (thbRate / 100);
+                    breakdownVal.innerText = '$' + changeUSD.toFixed(2) + '  ·  ' + Math.round(changeTHB).toLocaleString() + ' ฿';
+                    breakdownVal.style.color = 'var(--primary)';
+                    breakdownRow.style.display = 'flex';
+                } else {
+                    if (breakdownRow) breakdownRow.style.display = 'none';
+                }
+            } else {
+                // Remaining amount needed (Red/Orange)
+                row.style.background = 'rgba(255,59,48,0.06)';
+                row.style.borderColor = 'rgba(255,59,48,0.25)';
+                label.innerText = 'REMAINING';
+                label.style.color = '#FF3B30';
+                val.innerText = Math.round(Math.abs(change)).toLocaleString() + ' KHR';
+                val.style.color = '#FF3B30';
+                
+                if (breakdownRow && breakdownVal) {
+                    const remUSD = Math.abs(change) / usdRate;
+                    const remTHB = Math.abs(change) / (thbRate / 100);
+                    breakdownVal.innerText = '$' + remUSD.toFixed(2) + '  ·  ' + Math.round(remTHB).toLocaleString() + ' ฿';
+                    breakdownVal.style.color = '#FF3B30';
+                    breakdownRow.style.display = 'flex';
+                }
+            }
+            
+            // Sync active state of KHR preset buttons
+            const presetsContainer = document.getElementById('quickCashPresets');
+            if (presetsContainer) {
+                const buttons = presetsContainer.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    const amtAttr = btn.getAttribute('data-amount');
+                    if (amtAttr && parseFloat(amtAttr) === cashKHR && cashUSD === 0 && cashTHB === 0) {
+                        btn.style.background = 'var(--primary)';
+                        btn.style.borderColor = 'var(--primary)';
+                        btn.style.color = '#fff';
+                    } else {
+                        btn.style.background = 'var(--bg)';
+                        btn.style.borderColor = 'var(--border)';
+                        btn.style.color = 'var(--text)';
+                    }
+                });
+            }
+        }
+
         function confirmOrder() {
             if(currentOrder.length === 0) return;
-            let total = 0; let html = '<div style="background:var(--bg); padding:10px; border-radius:8px;">';
+            
+            // Build Left Column: Items List
+            let itemsHTML = '';
+            let total = 0;
             const grouped = getGroupedItems(currentOrder);
             grouped.forEach(i => {
                 let baseP = i.price + (i.milkOption==='Oat'?i.oatPrice:0); 
@@ -2848,22 +3205,141 @@
                 let countStr = i.qty > 1 ? `<b style="color:var(--primary)">x${i.qty}</b> ` : '';
                 let discStr = i.discount > 0 ? ` <span style="color:#FF3B30;font-size:10px;">(-${i.discount}%)</span>` : '';
                 
-                html += `<div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:5px; border-bottom:1px solid var(--border); padding-bottom:5px;">
+                itemsHTML += `<div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:5px; border-bottom:1px solid var(--border); padding-bottom:5px;">
                     <span>${countStr}${i.name} <span style="color:var(--text-muted);font-size:10px;">(${i.sweetness})</span>${discStr}</span>
                     <span>${rowP.toLocaleString()} KHR</span></div>`;
             });
             
             let finalTotal = total - (total * globalOrderDiscount / 100);
+            let discountHTML = '';
             if(globalOrderDiscount > 0) {
-                html += `<div style="text-align:right; font-size:12px; color:#FF3B30; margin-top:5px;">Order Discount: -${globalOrderDiscount}%</div>`;
+                discountHTML = `<div style="text-align:right; font-size:12px; color:#FF3B30; margin-top:5px; margin-bottom:5px;">Order Discount: -${globalOrderDiscount}%</div>`;
             }
-            html += `</div><div style="text-align:right; font-weight:700; color:var(--primary); margin-top:10px; font-size:18px;">${finalTotal.toLocaleString()} KHR</div>`;
 
+            // Build Right Column Banknote Presets
+            const presets = [finalTotal];
+            const standardNotes = [5000, 10000, 20000, 50000, 100000];
+            standardNotes.forEach(note => {
+                if (note > finalTotal && !presets.includes(note)) {
+                    presets.push(note);
+                }
+            });
+            presets.sort((a, b) => a - b);
+            const limitedPresets = presets.slice(0, 5); // Max 5 presets
+
+            let presetsHTML = '';
+            limitedPresets.forEach(amt => {
+                const label = amt === finalTotal ? 'Exact' : amt.toLocaleString();
+                presetsHTML += `<button type="button" class="preset-btn" data-amount="${amt}" onclick="applyPresetCash(${amt}, ${finalTotal}, this)">${label}</button>`;
+            });
+
+            // Put everything into the responsive Split Section layout!
+            let html = `
+            <style>
+                .preset-btn {
+                    padding: 8px 12px;
+                    background: var(--bg);
+                    border: 1px solid var(--border);
+                    border-radius: 20px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    color: var(--text);
+                    cursor: pointer;
+                    font-family: inherit;
+                    transition: all 0.15s ease;
+                    outline: none;
+                    touch-action: manipulation;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .preset-btn:hover {
+                    border-color: var(--primary);
+                    color: var(--primary);
+                    background: color-mix(in srgb, var(--primary) 5%, var(--bg));
+                }
+                .preset-btn:active {
+                    transform: scale(0.95);
+                }
+                .payment-input:focus {
+                    border-color: var(--primary) !important;
+                    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent) !important;
+                }
+            </style>
+            
+            <div class="confirm-split-container">
+                <!-- Left Column: Order Items Details & Total -->
+                <div class="confirm-split-left">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 8px;">Order Details</div>
+                    <div class="confirm-items-scroll">
+                        ${itemsHTML}
+                    </div>
+                    ${discountHTML}
+                    <div style="text-align:right; font-weight:700; color:var(--primary); font-size:18px; margin-top:5px; margin-bottom:5px;">
+                        ${finalTotal.toLocaleString()} KHR
+                    </div>
+                </div>
+                
+                <!-- Right Column: Cash Received Calculation & Order Date -->
+                <div class="confirm-split-right">
+                    <div class="payment-calc-container" style="text-align: left;">
+                        <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 8px;">Cash Received</div>
+                        
+                        <!-- Mixed Cash Inputs (KHR, USD, THB) -->
+                        <div class="currency-inputs-grid" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px;">
+                            <!-- KHR Input -->
+                            <div style="position: relative; display: flex; align-items: center;">
+                                <input type="number" id="cashReceivedInputKHR" class="payment-input" inputmode="numeric" placeholder="KHR (៛) amount..." 
+                                       oninput="updateChangeCalculation(${finalTotal})" 
+                                       style="width: 100%; padding: 10px 70px 10px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-weight: 700; font-family: inherit; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.15s, box-shadow 0.15s;">
+                                <span style="position: absolute; right: 14px; font-size: 11px; font-weight: 700; color: var(--text-muted); pointer-events: none;">KHR (៛)</span>
+                            </div>
+                            <!-- USD Input -->
+                            <div style="position: relative; display: flex; align-items: center;">
+                                <input type="number" id="cashReceivedInputUSD" class="payment-input" inputmode="decimal" placeholder="USD ($) amount..." 
+                                       oninput="updateChangeCalculation(${finalTotal})" 
+                                       style="width: 100%; padding: 10px 70px 10px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-weight: 700; font-family: inherit; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.15s, box-shadow 0.15s;">
+                                <span style="position: absolute; right: 14px; font-size: 11px; font-weight: 700; color: var(--text-muted); pointer-events: none;">USD ($)</span>
+                            </div>
+                            <!-- THB Input -->
+                            <div style="position: relative; display: flex; align-items: center;">
+                                <input type="number" id="cashReceivedInputTHB" class="payment-input" inputmode="numeric" placeholder="THB (฿) amount..." 
+                                       oninput="updateChangeCalculation(${finalTotal})" 
+                                       style="width: 100%; padding: 10px 70px 10px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-weight: 700; font-family: inherit; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.15s, box-shadow 0.15s;">
+                                <span style="position: absolute; right: 14px; font-size: 11px; font-weight: 700; color: var(--text-muted); pointer-events: none;">THB (฿)</span>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;" id="quickCashPresets">
+                            ${presetsHTML}
+                        </div>
+                        
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; display: flex; justify-content: space-between;">
+                            <span>TOTAL PAID:</span>
+                            <span id="paymentTotalPaid" style="color: var(--text); font-weight: 800;">0 KHR</span>
+                        </div>
+                        
+                        <div id="changeDisplayRow" style="display: flex; flex-direction: column; gap: 4px; padding: 12px 16px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 12px; transition: all 0.25s ease;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                <span style="font-size: 11px; font-weight: 700; color: var(--text-muted);" id="changeDisplayLabel">CHANGE DUE</span>
+                                <span style="font-size: 18px; font-weight: 800; color: var(--text-muted);" id="changeDisplayVal">0 KHR</span>
+                            </div>
+                            <div id="changeBreakdownRow" style="display: none; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 6px; margin-top: 2px;">
+                                <span>EQUIVALENTS:</span>
+                                <span id="changeBreakdownVal" style="color: var(--primary);">0.00 USD | 0 THB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Date Selector -->
+                    `;
+            
             const _t = new Date();
             const _todayStr = `${_t.getFullYear()}-${String(_t.getMonth()+1).padStart(2,'0')}-${String(_t.getDate()).padStart(2,'0')}`;
-            html += `<div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border); display:flex; align-items:center; gap:10px;">
-                <span style="font-size:12px; color:var(--text-muted); font-weight:600; white-space:nowrap;">ORDER DATE</span>
-                <input type="date" id="orderDatePicker" value="${_todayStr}" style="border:1px solid var(--border); border-radius:8px; padding:6px 10px; font-size:14px; font-family:inherit; background:var(--bg); color:var(--text); flex:1;">
+            html += `
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span style="font-size:12px; color:var(--text-muted); font-weight:600; white-space:nowrap;">ORDER DATE</span>
+                        <input type="date" id="orderDatePicker" value="${_todayStr}" style="border:1px solid var(--border); border-radius:8px; padding:6px 10px; font-size:14px; font-family:inherit; background:var(--bg); color:var(--text); flex:1;">
+                    </div>
+                </div>
             </div>`;
 
             openModal('CONFIRM', html, () => processOrder());
@@ -2909,14 +3385,13 @@
             
             currentOrder = []; 
             globalOrderDiscount = 0;
-            document.getElementById('globalDiscountSelect').value = '0';
             _orderHistoryLastFetch = 0;
             renderCart();
             switchTab('menu');
             
             const html = generateReceiptHTML(orderForPrint);
             openModal('ORDER SAVED', `<div class="preview-scroll-container"><div class="receipt-paper">${html}</div></div>`, () => {
-                document.getElementById('receiptContainer').innerHTML = html; 
+                document.getElementById('receiptContainer').innerHTML = `<div class="receipt-paper">${html}</div>`; 
                 window.print();
             }, 'PRINT');
             return false;
@@ -2941,17 +3416,25 @@
             let finalTotal = total - (total * (d.globalDiscount || 0) / 100);
             let discHTML = d.globalDiscount > 0 ? `<div class="rp-row" style="color:#666; border-top:1px dashed #ccc; padding-top:5px; margin-top:5px;"><div>ORDER DISCOUNT</div><div>-${d.globalDiscount}%</div></div>` : '';
             
-            return `<div class="rp-header"><img src="./Logo.png" class="rp-logo"><div class="rp-title">My Day Matcha</div></div>
+            return `<div class="rp-header"><img src="https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG" class="rp-logo"><div class="rp-title">So-A</div></div>
                 <div style="font-size:9px;margin-bottom:15px;">${d.date} ${d.time} | #${d.id}</div><div class="rp-items">${rows}</div>
                 ${discHTML}
                 <div class="rp-total">TOTAL: ${finalTotal.toLocaleString()} KHR</div>
                 <div style="margin-top:20px; font-size:10px; font-weight:600; line-height:1.6;">
-                    Order online via Telegram @mydaymatcha<br>
+                    Order online via Telegram @So-A<br>
                     Truly appreciate your support
                 </div>`;
         }
 
         function openModal(t, c, a, cl = 'CANCEL') {
+            const mBox = document.querySelector('#modal .modal-box');
+            if (mBox) {
+                if (t === 'CONFIRM') {
+                    mBox.classList.add('wide-modal');
+                } else {
+                    mBox.classList.remove('wide-modal');
+                }
+            }
             document.getElementById('mTitle').innerHTML = t; 
             document.getElementById('mText').innerHTML = c;
             const input = document.getElementById('mInput');
@@ -3022,7 +3505,7 @@
             if (title) title.textContent = 'Analysis';
             switchFinView('analysis');
             fetchInventoryAndStats();
-            _deskNavActive('deskBtnAnalysis');
+            _deskNavActive('deskBtnSettings');
             _setFinMobileNav('btnAnalysis');
         }
 
@@ -3039,7 +3522,7 @@
             if (title) title.textContent = 'Stock Management';
             switchFinView('stock');
             fetchInventoryAndStats();
-            _deskNavActive('deskBtnStock');
+            _deskNavActive('deskBtnSettings');
             _setFinMobileNav('btnStock');
         }
 
@@ -3050,8 +3533,11 @@
             document.getElementById('inventoryPage').classList.remove('open');
             document.getElementById('managerPage').classList.remove('open');
             document.getElementById('historyPage').classList.add('open');
+            const totalEl = document.getElementById('historyTotalTitle');
+            if (totalEl) totalEl.classList.remove('revealed');
             _deskNavActive('deskBtnHistory');
             _loadHistory();
+            _setMobileActiveNav('btnHistory');
         }
 
         function changeHistoryMonth(dir) {
@@ -3126,6 +3612,7 @@
                 const order = historyData[id];
                 const div = document.createElement('div');
                 div.className = 'history-card';
+                div.setAttribute('onclick', `openHistoryDetail('${id}')`);
                 let itemsDisplay = order.items.map(i => (i.qty > 1 ? `×${i.qty} ` : '') + i.name).join('  ·  ');
                 div.innerHTML = `
                     <div class="hc-top">
@@ -3134,10 +3621,15 @@
                             <div class="hc-time">${order.date}  ·  ${order.time}</div>
                         </div>
                         <div class="hc-actions">
-                            <button class="hc-print-btn" onclick="printHistory('${id}')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></button>
-                            <button class="hc-edit-btn" onclick="openOrderEdit('${id}')">
+                            <button class="hc-print-btn" onclick="printHistory('${id}'); event.stopPropagation();" title="Print Receipt">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                            </button>
+                            <button class="hc-edit-btn" onclick="openOrderEdit('${id}'); event.stopPropagation();" title="Edit Order">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                                 Edit
+                            </button>
+                            <button class="hc-delete-btn" onclick="confirmDeleteOrder('${id}'); event.stopPropagation();" title="Delete Order">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
                             </button>
                         </div>
                     </div>
@@ -3145,21 +3637,40 @@
                         <div class="hc-items-text">${itemsDisplay}</div>
                     </div>
                     <div class="hc-total-row">
+                        <span style="font-size: 11px; color: var(--text-muted); font-weight: 600; opacity: 0.85; display: flex; align-items: center; gap: 4px;">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            Tap for details
+                        </span>
                         <span class="hc-total-amt">${order.total.toLocaleString()} KHR</span>
                     </div>
                 `;
                 list.appendChild(div);
             });
         }
-
+        
         function printHistory(id) {
             const order = historyData[id];
             if(!order) return;
             const html = generateReceiptHTML(order);
             openModal('PRINT RECORD', `<div class="preview-scroll-container"><div class="receipt-paper">${html}</div></div>`, () => {
-                document.getElementById('receiptContainer').innerHTML = html;
+                document.getElementById('receiptContainer').innerHTML = `<div class="receipt-paper">${html}</div>`;
                 window.print();
             }, 'PRINT');
+        }
+
+        function openHistoryDetail(id) {
+            const order = historyData[id];
+            if (!order) return;
+            const html = generateReceiptHTML(order);
+            document.querySelector('#historyDetailModal .hd-receipt-preview').innerHTML = html;
+            document.getElementById('hdPrintBtn').onclick = () => { printHistory(id); };
+            document.getElementById('hdEditBtn').onclick = () => { closeHistoryDetail(); openOrderEdit(id); };
+            document.getElementById('hdDeleteBtn').onclick = () => { closeHistoryDetail(); confirmDeleteOrder(id); };
+            document.getElementById('historyDetailModal').classList.add('open');
+        }
+
+        function closeHistoryDetail() {
+            document.getElementById('historyDetailModal').classList.remove('open');
         }
 
         function _monthFromOrderId(id) {
@@ -3348,7 +3859,10 @@
                 if (data.status === 'success') {
                     const order = historyData[orderId];
                     const item = order.items.find(i => i.name === itemName);
-                    if (item) { order.total = order.total - item.price + newPrice; item.price = newPrice; }
+                    if (item) { 
+                        order.total = order.total - (item.price * item.qty) + (newPrice * item.qty); 
+                        item.price = newPrice; 
+                    }
                     localStorage.removeItem('myday_history_' + month);
                     _orderHistoryLastFetch = 0;
                     _renderOrderEditItems();
@@ -3531,7 +4045,7 @@
             const list = document.getElementById('managerList');
             list.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-muted)">Loading Menu...</div>';
             document.getElementById('managerPage').classList.add('open');
-            _deskNavActive('deskBtnManager');
+            _deskNavActive('deskBtnSettings');
             
             fetch(GOOGLE_SCRIPT_URL + '?action=get_menu').then(res => res.json()).then(data => {
                 if(data && data.length > 0) { renderManagerList(data); } 
@@ -4109,6 +4623,7 @@
             ]).then(() => {
                 _setSyncing(false);
                 toast.innerText = '✓ Synced! Reloading...'; toast.classList.add('show');
+                sessionStorage.setItem('myday_sync_reload', 'true');
                 setTimeout(() => location.reload(), 1500);
             }).catch(() => {
                 _setSyncing(false);
@@ -4308,6 +4823,76 @@
             setTimeout(() => { sheet.style.visibility = 'hidden'; }, 380);
         }
 
+        function openRatesModal() {
+            toggleSettings(false);
+            const modal = document.getElementById('ratesModal');
+            if (modal) {
+                document.getElementById('inputUsdRate').value = usdRate;
+                document.getElementById('inputThbRate').value = thbRate;
+                modal.classList.add('open');
+            }
+        }
+        function closeRatesModal() {
+            const modal = document.getElementById('ratesModal');
+            if (modal) modal.classList.remove('open');
+        }
+        function saveExchangeRates() {
+            const usdVal = parseFloat(document.getElementById('inputUsdRate').value);
+            const thbVal = parseFloat(document.getElementById('inputThbRate').value);
+            if (isNaN(usdVal) || usdVal <= 0 || isNaN(thbVal) || thbVal <= 0) {
+                alert("Please enter valid rate numbers greater than 0");
+                return;
+            }
+            usdRate = usdVal;
+            thbRate = thbVal;
+            updateRatesDisplay();
+            closeRatesModal();
+            showToast("Saving exchange rates...");
+            
+            localStorage.setItem('myday_rates', JSON.stringify({ usd_rate: usdRate, thb_rate: thbRate }));
+            
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ action: 'save_rates', usd_rate: usdRate, thb_rate: thbRate })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    showToast("Rates saved to Google Sheets");
+                } else {
+                    showToast("Saved locally, but Google Sheets error");
+                }
+            })
+            .catch(() => {
+                showToast("Saved locally. Offline or connection error");
+            });
+        }
+        function updateRatesDisplay() {
+            const display = document.getElementById('exchangeRateDisplay');
+            if (display) {
+                display.innerHTML = `1$ = ${usdRate.toLocaleString()}៛ | 100฿ = ${thbRate.toLocaleString()}៛ ›`;
+            }
+        }
+        function fetchExchangeRates() {
+            const cachedRates = localStorage.getItem('myday_rates');
+            if (cachedRates) {
+                const rates = JSON.parse(cachedRates);
+                usdRate = parseFloat(rates.usd_rate) || 4000;
+                thbRate = parseFloat(rates.thb_rate) || 10000;
+                updateRatesDisplay();
+            }
+            fetch(GOOGLE_SCRIPT_URL + '?action=get_rates')
+                .then(r => r.json())
+                .then(data => {
+                    localStorage.setItem('myday_rates', JSON.stringify(data));
+                    usdRate = parseFloat(data.usd_rate) || 4000;
+                    thbRate = parseFloat(data.thb_rate) || 10000;
+                    updateRatesDisplay();
+                })
+                .catch(() => {});
+        }
+
     /* ── PWA: Register Service Worker ── */
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -4326,7 +4911,7 @@
                 </div>
                 <div>
                     <div style="font-family:'Quicksand',sans-serif;font-size:19px;font-weight:800;color:var(--text);">What's New — v5.0.9</div>
-                    <div style="font-size:11px;color:var(--text-muted);margin-top:1px;">My Day Matcha has been updated</div>
+                    <div style="font-size:11px;color:var(--text-muted);margin-top:1px;">So-A has been updated</div>
                 </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:14px;margin:18px 0 20px;">
@@ -4411,7 +4996,7 @@
                 <button class="oem-footer-confirm" onclick="addPendingInventory()" id="aeAddBtn">+ Add to List</button>
             </div>
             <div style="padding:0 20px 16px;">
-                <button id="btnSaveInv" class="btn btn-confirm" style="width:100%; display:none; background:#2E7D32; font-size:13px;" onclick="saveInventory()">Save All Records</button>
+                <button id="btnSaveInv" class="btn btn-confirm" style="width:100%; display:none; background:var(--primary-dim); font-size:13px;" onclick="saveInventory()">Save All Records</button>
             </div>
         </div>
     </div>
@@ -4427,6 +5012,36 @@
             <div class="dp-footer">
                 <button class="dp-cancel" onclick="closeDrinkPicker()">Cancel</button>
                 <button class="dp-confirm" id="dpConfirmBtn" onclick="confirmDrinkPick()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exchange Rates Modal -->
+    <div id="ratesModal" class="oem-overlay" onclick="if(event.target===this)closeRatesModal()">
+        <div class="oem-sheet" style="max-width:480px;">
+            <div class="oem-handle"></div>
+            <div class="oem-header">
+                <div>
+                    <div class="oem-title">Exchange Rates</div>
+                    <div class="oem-meta">Set active exchange rates for payment</div>
+                </div>
+                <button class="oem-close" onclick="closeRatesModal()">&times;</button>
+            </div>
+            <div class="oem-body" style="padding:14px 20px 4px;">
+                <div class="form-group">
+                    <label class="form-label">USD Exchange Rate (1 USD = ? KHR)</label>
+                    <input id="inputUsdRate" class="form-input" type="number" inputmode="numeric" placeholder="4000" autocomplete="off">
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:5px;">Standard default rate is 4000 KHR.</div>
+                </div>
+                <div class="form-group" style="margin-top:15px;">
+                    <label class="form-label">THB Exchange Rate (100 THB = ? KHR)</label>
+                    <input id="inputThbRate" class="form-input" type="number" inputmode="numeric" placeholder="10000" autocomplete="off">
+                    <div style="font-size:11px; color:var(--text-muted); margin-top:5px;">Standard default rate is 10000 KHR.</div>
+                </div>
+            </div>
+            <div class="oem-footer">
+                <button class="oem-footer-close" onclick="closeRatesModal()">Cancel</button>
+                <button style="flex:1; padding:14px; background:var(--primary); border:none; border-radius:14px; color:#fff; font-weight:700; font-size:13px; cursor:pointer; font-family:inherit;" onclick="saveExchangeRates()">Save Rates</button>
             </div>
         </div>
     </div>
