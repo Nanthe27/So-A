@@ -1,24 +1,24 @@
 {
-    "name": "My Day Matcha",
-    "short_name": "My Day Matcha",
-    "description": "My Day Matcha — Order, Menu & Loyalty",
+    "name": "So-A",
+    "short_name": "So-A",
+    "description": "So-A — Order, Menu & Loyalty",
     "start_url": "./",
     "scope": "./",
     "display": "standalone",
     "orientation": "portrait-primary",
     "background_color": "#F2F2F7",
-    "theme_color": "#4CAF50",
+    "theme_color": "#7E7E84",
     "icons": [
         {
-            "src": "https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/a10b4d4f580a0e014e57221c0b136abf501a8d1f/Logo.png",
+            "src": "https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG",
             "sizes": "192x192",
-            "type": "image/png",
+            "type": "image/jpeg",
             "purpose": "any maskable"
         },
         {
-            "src": "https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/a10b4d4f580a0e014e57221c0b136abf501a8d1f/Logo.png",
+            "src": "https://raw.githubusercontent.com/Nanthe27/MyDayMatcha/refs/heads/main/menu/So-A%20LOGO.JPG",
             "sizes": "512x512",
-            "type": "image/png",
+            "type": "image/jpeg",
             "purpose": "any maskable"
         }
     ],
